@@ -396,9 +396,12 @@ h3 {
 .project-card,
 .project-tile,
 .process-card,
+.offer-card,
 .pillar-card,
 .contact-card,
 .contact-point,
+.quote-card,
+.social-card,
 .feature-board {
   position: relative;
   overflow: hidden;
@@ -488,6 +491,41 @@ h3 {
   animation: lift 8s ease-in-out infinite;
 }
 
+.kinetic-bars {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  display: grid;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.kinetic-bars span {
+  display: block;
+  height: 8px;
+  border-radius: 999px;
+  transform-origin: left center;
+  animation: barPulse 2.8s ease-in-out infinite;
+}
+
+.kinetic-bars span:nth-child(1) {
+  width: 62%;
+  background: var(--green);
+}
+
+.kinetic-bars span:nth-child(2) {
+  width: 46%;
+  background: var(--red);
+  animation-delay: 180ms;
+}
+
+.kinetic-bars span:nth-child(3) {
+  width: 54%;
+  background: var(--blue);
+  animation-delay: 320ms;
+}
+
 .feature-board__bottom {
   margin-top: 12px;
 }
@@ -550,17 +588,23 @@ h3 {
 .showcase-grid,
 .portfolio-grid,
 .process-grid,
+.offer-grid,
 .pillar-layout {
   display: grid;
   gap: 16px;
 }
 
 .service-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.offer-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .service-card,
 .process-card,
+.offer-card,
 .pillar-card {
   padding: 22px;
 }
@@ -581,6 +625,11 @@ h3 {
   letter-spacing: 0.08em;
 }
 
+.services-menu,
+.how-it-works {
+  overflow: hidden;
+}
+
 .feature-showcase {
   overflow: hidden;
 }
@@ -593,6 +642,45 @@ h3 {
   min-height: 390px;
   display: flex;
   flex-direction: column;
+}
+
+.project-card,
+.real-project,
+.series-slide,
+.service-card,
+.process-card,
+.offer-card,
+.quote-card,
+.social-card {
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.project-card:hover,
+.real-project:hover,
+.series-slide:hover,
+.service-card:hover,
+.process-card:hover,
+.offer-card:hover,
+.quote-card:hover,
+.social-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 216, 78, 0.38);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.97);
+  transition:
+    opacity 520ms ease,
+    transform 620ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 180ms ease,
+    background 180ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .project-card--image {
@@ -615,7 +703,7 @@ h3 {
 }
 
 .project-card__body {
-  padding: 20px;
+  padding: 18px;
 }
 
 .project-type {
@@ -853,7 +941,7 @@ h3 {
 
 .portfolio-feature {
   margin-top: 18px;
-  padding: 26px;
+  padding: 24px;
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
   background:
@@ -1020,6 +1108,10 @@ h3 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.process-grid--simple {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .pillar-layout {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1047,6 +1139,19 @@ h3 {
   margin: 0;
 }
 
+.quote-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 28px;
+  padding: 28px;
+}
+
+.quote-card h2 {
+  max-width: none;
+}
+
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 0.9fr;
@@ -1056,6 +1161,30 @@ h3 {
 
 .contact-copy h1 {
   max-width: 12ch;
+}
+
+.contact-socials {
+  margin-top: 24px;
+}
+
+.social-card {
+  flex: 1 1 220px;
+  display: grid;
+  gap: 8px;
+  min-height: 118px;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+}
+
+.social-card span {
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+}
+
+.social-card strong {
+  font-size: 1.1rem;
 }
 
 .contact-points {
@@ -1080,6 +1209,17 @@ h3 {
   display: grid;
   gap: 14px;
   padding: 22px;
+}
+
+.contact-card--simple {
+  align-self: stretch;
+  align-content: center;
+}
+
+.contact-tags span {
+  padding: 10px 12px;
+  border-radius: 999px;
+  color: rgba(248, 248, 251, 0.86);
 }
 
 .contact-card label {
@@ -1139,6 +1279,29 @@ h3 {
   }
 }
 
+@keyframes barPulse {
+  0%,
+  100% {
+    transform: scaleX(0.75);
+    opacity: 0.72;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 1120px) {
   .hero,
   .contact-layout,
@@ -1179,6 +1342,14 @@ h3 {
   .section {
     padding: 22px;
     border-radius: 26px;
+  }
+
+  h1 {
+    font-size: 4.4rem;
+  }
+
+  h2 {
+    font-size: 2.6rem;
   }
 
   .stats-row,
@@ -1223,11 +1394,11 @@ h3 {
 
 @media (max-width: 560px) {
   h1 {
-    font-size: clamp(3rem, 14vw, 4.5rem);
+    font-size: 3.45rem;
   }
 
   h2 {
-    font-size: clamp(1.8rem, 9vw, 2.8rem);
+    font-size: 2.2rem;
   }
 
   .hero-actions,
