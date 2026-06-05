@@ -100,7 +100,8 @@ img {
 }
 
 .page-shell {
-  width: min(1240px, calc(100% - 32px));
+  width: min(1600px, calc(100% - 32px));
+  max-width: 1600px;
   margin: 0 auto;
   padding: 20px 0 32px;
 }
@@ -247,10 +248,10 @@ img {
 
 .hero {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 28px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
   align-items: center;
-  min-height: 78vh;
+  min-height: 82vh;
   overflow: hidden;
   position: relative;
 }
@@ -297,7 +298,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.03em;
   font-size: 6.4rem;
-  max-width: 11ch;
+  max-width: 14ch;
   text-shadow:
     0.03em 0.06em 0 var(--red),
     -0.04em 0.1em 0 var(--blue);
@@ -308,7 +309,7 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: 3.1rem;
-  max-width: 12ch;
+  max-width: 16ch;
 }
 
 h3 {
