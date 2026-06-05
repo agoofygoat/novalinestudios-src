@@ -1,0 +1,16 @@
+{
+  "name": "Novaline Studios",
+  "short_name": "Novaline",
+  "description": "Branding, websites, and graphic design for bold, modern visual experiences.",
+  "icons": [
+    {
+      "src": "assets/novaline.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#111111"
+}
