@@ -707,6 +707,128 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.upkeep-panel {
+  position: relative;
+}
+
+.upkeep-grid {
+  display: block;
+}
+
+.upkeep-copy {
+  display: grid;
+  gap: 18px;
+  padding: 28px 26px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.upkeep-box {
+  width: 100%;
+}
+
+.upkeep-list {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.upkeep-list li {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 16px 20px;
+}
+
+.upkeep-list strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--yellow);
+}
+
+.upkeep-visual {
+  position: relative;
+}
+
+.upkeep-graphic {
+  position: relative;
+  padding: 32px 24px 28px;
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(7, 11, 19, 0.96), rgba(19, 25, 42, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.24);
+  overflow: hidden;
+}
+
+.upkeep-graphic::before {
+  content: "";
+  position: absolute;
+  inset: -16px 18px 30px -12px;
+  background: radial-gradient(circle at top right, rgba(255, 216, 78, 0.14), transparent 24%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.upkeep-banner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  margin-bottom: 22px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--yellow);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.upkeep-cards {
+  display: grid;
+  gap: 16px;
+}
+
+.upkeep-card {
+  padding: 20px 22px;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  min-height: 140px;
+}
+
+.upkeep-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.03rem;
+}
+
+.upkeep-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.7;
+}
+
+.upkeep-card--shadow {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+}
+
+.upkeep-card--stripe {
+  background: linear-gradient(135deg, rgba(255, 216, 78, 0.08), rgba(255, 255, 255, 0.03));
+}
+
+.upkeep-card--accent {
+  background: linear-gradient(135deg, rgba(99, 193, 255, 0.08), rgba(255, 255, 255, 0.02));
+}
+
+@media (max-width: 980px) {
+  .upkeep-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .service-card,
 .process-card,
 .offer-card,
